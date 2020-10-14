@@ -109,6 +109,7 @@ function! test#shell(cmd, strategy) abort
 
   if exists('{specified_strategy}')
     call g:test#custom_strategies[{specified_strategy}](cmd)
+    let g:test#last_strategy = {specified_strategy}
   elseif has_key(g:test#custom_strategies, strategy)
     call g:test#custom_strategies[strategy](cmd)
   else
